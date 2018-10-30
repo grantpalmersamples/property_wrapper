@@ -68,7 +68,7 @@ class _NestedLookupPropertyFactory:
                     msg = self.type_error_msg.format(action_str, name)
                 raise AttributeError(msg) from e
 
-        fget.__doc__ = self.doc.format(action_str.title())
+        fget.__doc__ = self.doc.format(action_str.title(), name)
 
         return fget
 
@@ -96,7 +96,7 @@ class _NestedLookupPropertyFactory:
                     msg = self.type_error_msg.format(action_str, name)
                 raise AttributeError(msg) from e
 
-        fset.__doc__ = self.doc.format(action_str.title())
+        fset.__doc__ = self.doc.format(action_str.title(), name)
 
         return fset
 
@@ -124,7 +124,7 @@ class _NestedLookupPropertyFactory:
                     msg = self.type_error_msg.format(action_str, name)
                 raise AttributeError(msg) from e
 
-        fset.__doc__ = self.doc.format(action_str.title())
+        fdel.__doc__ = self.doc.format(action_str.title(), name)
 
         return fdel
 
