@@ -152,7 +152,7 @@ class _NestedLookupPropertyFactory:
         :param doc: The doc for the property
         :return: A NestedLookupProperty
         """
-        
+
         if fget is True:
             fget = self.build_fget(name)
         if fset is True:
@@ -198,6 +198,11 @@ class NestedLookupPropertyWrapperMeta(type):
     """
 
     def __new__(mcs, name, bases, dct, **kwargs):
+        """
+        Create a new instance of a nested lookup wrapper class.
+
+        Refer to documentation of metaclasses.
+        """
         if 'props' in kwargs:
             make_nlp = _NestedLookupPropertyFactory()
             # create an empty property mapping for the class
